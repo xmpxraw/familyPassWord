@@ -1,0 +1,22 @@
+{
+  "name": "familypassword",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jquery-3.2.1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xmpxraw/familyPassWord.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xmpxraw/familyPassWord/issues"
+  },
+  "homepage": "https://github.com/xmpxraw/familyPassWord#readme",
+  "dependencies": {
+    "clipboard": "^2.0.0"
+  }
+}

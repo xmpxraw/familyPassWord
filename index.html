@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>familypassword</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">  
+	<script src="dist/clipboard.min.js"></script>
+	<script src="dist/fastclick.min.js"></script>
+	<style>
+		.container{
+			text-align: center;
+			margin-top: 40px;
+		}
+		footer{
+			width: 50%;
+			margin-left: 25%;
+			height: 40px;
+			line-height: 40px;
+			color: #fff;
+			background: #3871DE;
+			text-align: center;
+			border-radius: 5px;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<p class="title">欢迎来到我家</p>
+		<p class="wifi">wifi密码是：teirT7yEaf2aW4eAp</p>
+		<footer id="btn" data-clipboard-text="teirT7yEaf2aW4eAp">点击复制</footer>
+	</div>
+</body>
+<script>
+	FastClick.attach(document.body)
+    var btn = document.getElementById('btn');
+	//init
+	var clipboard = new ClipboardJS(btn);
+	// 优雅降级:safari 版本号>=10,提示复制成功;否则提示需在文字选中后，手动选择“拷贝”进行复制
+	clipboard.on('success', function(e) {
+	    alert('复制成功!')
+	    e.clearSelection();
+	});
+	clipboard.on('error', function(e) {
+	    alert('请选择“拷贝”进行复制!')
+	});
+</script>
+</html>
+
+
+
+
+
+
+
+
