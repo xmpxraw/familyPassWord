@@ -4,11 +4,13 @@
 	<meta charset="UTF-8">
 	<title>familypassword</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">  
+	<link rel="stylesheet" href="css/animate.css">
 	<script src="dist/clipboard.min.js"></script>
 	<script src="dist/fastclick.min.js"></script>
+	<script src="dist/jquery-3.2.1.js"></script>
 	<style>
 		.container{
-			text-align: center;
+			text-align: center;	
 			margin-top: 40px;
 		}
 		footer{
@@ -22,30 +24,74 @@
 			border-radius: 5px;
 			margin-top: 50px;
 		}
+		.password{
+			color: #f35626;
+			display: block;
+			margin: 20px 0;
+		}
 	</style>
 </head>
-<body>
+<body onload="onload()">
 	<div class="container">
 		<p class="title">欢迎来到我家</p>
-		<p class="wifi">wifi密码是：teirT7yEaf2aW4eAp</p>
-		<footer id="btn" data-clipboard-text="teirT7yEaf2aW4eAp">点击复制</footer>
+		<p class="wifi">wifi密码是：<span class="password animated">teirT7yEaf2aW4eAp</span></p>
+		<footer id="btn" data-clipboard-text="teirT7yEaf2aW4eAp" class="animated">点击复制</footer>
 	</div>
 </body>
 <script>
-	FastClick.attach(document.body)
-    var btn = document.getElementById('btn');
-	//init
-	var clipboard = new ClipboardJS(btn);
-	// 优雅降级:safari 版本号>=10,提示复制成功;否则提示需在文字选中后，手动选择“拷贝”进行复制
-	clipboard.on('success', function(e) {
-	    alert('复制成功!')
-	    e.clearSelection();
-	});
-	clipboard.on('error', function(e) {
-	    alert('请选择“拷贝”进行复制!')
-	});
+	var index = (function () {
+		return {
+			init: function () {
+				this.bindEvent()
+			},
+			bindEvent: function () {
+				FastClick.attach(document.body)
+				this.addCopy()
+				 setTimeout(function () {
+			    	$('.password').addClass('tada')
+			    }, 500)
+			},
+			addCopy: function  () {
+			    var btn = document.getElementById('btn');
+				//init
+				var clipboard = new ClipboardJS(btn);
+				// 优雅降级:safari 版本号>=10,提示复制成功;否则提示需在文字选中后，手动选择“拷贝”进行复制
+				clipboard.on('success', function(e) {
+					$('#btn').addClass('rubberBand')
+				    setTimeout(function () {
+				    	alert('复制成功!')
+				    	e.clearSelection()
+				    	$('#btn').removeClass('rubberBand')
+				    }, 1000)
+				});
+				clipboard.on('error', function(e) {
+				    alert('请选择“拷贝”进行复制!')
+				});
+			}
+		}
+	})()
+	var onload = index.init.bind(index)
+
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
