@@ -34,7 +34,7 @@
 <body onload="onload()">
 	<div class="container">
 		<p class="title">欢迎来到我家</p>
-		<p class="wifi">wifi密码是：<span class="password animated">teirT7yEaf2aW4eAp</span></p>
+		<p class="wifi">wifi密码是：<span class="password tada animated">teirT7yEaf2aW4eAp</span></p>
 		<footer id="btn" data-clipboard-text="teirT7yEaf2aW4eAp" class="animated">点击复制</footer>
 	</div>
 </body>
@@ -47,9 +47,6 @@
 			bindEvent: function () {
 				FastClick.attach(document.body)
 				this.addCopy()
-				 setTimeout(function () {
-			    	$('.password').addClass('tada')
-			    }, 500)
 			},
 			addCopy: function  () {
 			    var btn = document.getElementById('btn');
@@ -71,7 +68,6 @@
 		}
 	})()
 	var onload = index.init.bind(index)
-
 </script>
 </html>
 
